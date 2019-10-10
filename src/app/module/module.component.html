@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <script src="../module/module.component.js"></script>
+</head>
+
+<body>
+    <div class="Module-1255">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                    <div class="chef">
+                        <img [src]="imageUrl" alt="img-reposnive">
+                    </div>
+                    <div class="text">
+                        <div class="title">
+                            <h3>{{join}}</h3>
+                        </div>
+                        <div class="name">
+                            <p>
+                                {{text}}
+                            </p>
+                        </div>
+                        <a class="login-window button" href="#login-box">{{apply}}</a>
+                        <div id="login-box" class="login">
+                            <p class="login_title"> Đăng nhập</p>
+                            <a href="#" class="close"><img [src]="imageClose" class="img-close"
+                                    title="Close Window" alt="Close" /></a>
+                            <form method="post" class="login-content" action="#">
+                                <label>
+                                    <span>Tên hoặc email</span>
+                                    <input id="username" name="username" value="" type="text" autocomplete="on"
+                                        placeholder="Username">
+                                </label>
+                                <label>
+                                    <span>Mật khẩu</span>
+                                    <input id="password" name="password" value="" type="password"
+                                        placeholder="Password">
+                                </label>
+                                <button class="button submit-button" type="button">Đăng nhập</button>
+                                <p>
+                                    <a class="rb-password" href="#">Quên mật khẩu?</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(document).ready(function () {
+    $('a.login-window').click(function () {
+        var loginBox = $(this).attr('href');
+        $(loginBox).fadeIn("slow");
+        $('body').append('<div id="over"></div>');
+        $('#over').fadeIn(300);
+
+        return false;
+    });
+    $(document).on('click', "a.close, #over", function () {
+        $('#over, .login').fadeOut(300, function () {
+            $('#over').remove();
+        });
+        return false;
+    });
+
+});
+</script>
+    
+</body>
+
+
+
+</html>
